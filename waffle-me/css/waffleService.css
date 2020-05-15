@@ -28,7 +28,7 @@ body {
 }
 /*----------------------- header---------------------------- */
 header .logo::before {
-  background: no-repeat url("../img/logo_bk.png") center center;
+  background: no-repeat url("../img/service.jpg") center center;
   background-size: cover;
 }
 /* --------로그인 & 검색 & 마이페이지 ----------- */
