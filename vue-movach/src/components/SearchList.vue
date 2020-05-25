@@ -1,7 +1,7 @@
 <template>
     <div>
         <ul class="movie_list">
-            <li  v-for="movie in movies"
+            <li class="list_box" v-for="movie in movies"
                 :key="movie.movieCd">
                 <ul>
                   <li>{{movie.movieNm}}</li>
@@ -24,5 +24,8 @@ export default {
 }
 </script>
 <style>
-  .movie_list li {list-style: none; margin:0px; padding:0px;}
+  ul {margin:0; padding:0;}
+  ul li {width: 100%; height: 100%; list-style: none; margin:0; padding:0;}
+  .movie_list {display:flex; flex-direction: row; flex-wrap: wrap; justify-content: center; text-align: center;}
+  .movie_list .list_box {width: 30vw; height: 30vh; margin: 10px; border:1px solid #444; border-radius:10px;}
 </style>

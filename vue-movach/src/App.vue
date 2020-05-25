@@ -2,7 +2,7 @@
   <div id="app">
     <!-- <search-test /> -->
     <main-search />
-    <search-list />
+    <search-list class="search_list" />
   </div>
 </template>
 
@@ -20,3 +20,6 @@ export default {
   }
 }
 </script>
+<style>
+  .search_list {width: 100%; margin: 200px 0;}
+</style>
