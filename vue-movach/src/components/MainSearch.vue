@@ -14,36 +14,22 @@ import { mapActions } from 'vuex'
 export default {
   // state에 있는 data쓸려면 computed에 정의해야함
   computed: {
-    // 양방향 데이터 바인드할려면 get() set() 메서드 이용해야함
-    title: {
-      get () {
-        return this.$store.state.title
-      },
-      set (title) {
-        this.$store.commit('movie/updateState', {
-          title
-        })
+      title : {
+        get () {
+          return this.$store.state.title
+        },
+        set (title) {
+          this.$store.commit('movie/updateState', {
+            title
+          })
+        }
       }
     },
     methods: {
-      ...mapActions('movie', [
-        'searchMovies'
-      ])
-    }
-
-    /*
-    searchMovies () {
-      console.log(this.title)
-      axios.get('https://openapi.naver.com/v1/search/movie.json?', {
-        params: { query: this.title, display: 20 },
-        headers: { 'X-Naver-Client-Id': '5mW0DavUqbXh0I37vMIe', 'X-Naver-Client-Secret': 'ICorgfEb0w' }
-      })
-        .then(response => {
-          console.log(response)
-        })
-    }
-    */
-  }
+      ...mapActions('movie',[
+            'searchMovies'
+        ])
+    }  
 }
 </script>
 <style>

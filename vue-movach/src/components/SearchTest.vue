@@ -1,4 +1,5 @@
 <template>
+<!-- vuex 적용전 -->
     <header>
         <p class="title">MOVACH</p>
         <div class="gnp">
@@ -6,10 +7,11 @@
             <button>회원가입</button>
         </div>
         <input type="text" v-model="title" @keypress.enter="searchMovise" placeholder="검색어를 입력해주세요">
-        <ul v-for="movie in movies"
+        <ul class="movie_list">
+            <li v-for="movie in movies"
                 :key="movie.movieCd">
-            <li>{{movie.movieNm
-                }}</li>
+                {{movie.movieNm}}
+            </li>
         </ul>
     </header>
 </template>
@@ -42,4 +44,5 @@ export default {
     .gnp button {width: 150px; height: 50px; border: none; border-radius: 10px; background:#ff2f6e; font-size:25px; color:#fff; cursor: pointer;}
     .gnp button:first-child {margin-right: 20px; background:none;}
     input {position: absolute; left: 50%; bottom: 0; transform: translate(-50%, 50%); width: 70vw; height: 80px; border-radius: 10px; padding: 0 20px; font-size: 20px;}
+    .movie_list>li {list-style: none; margin:0px; padding:0px;}
 </style>

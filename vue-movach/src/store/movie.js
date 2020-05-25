@@ -2,10 +2,10 @@ import axios from 'axios';
 
 export default {
     namespaced: true,
-    state: () => ({
-        title: '',
+    state: {
+        title : '',
         movies: []
-    }),
+    },
     getters: {},
     mutations: {
         updateState (state, payload) {
@@ -19,6 +19,20 @@ export default {
         } 
     },
     actions: {
+        /* //검색한 영화 10개까지 보는 코드
+        searchMovies ({state, commit}) {
+            const key = '1f23d9ce4e683611b73fb9600216d051'
+            axios.get(`https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=${key}&movieNm=${state.title}&curPage=1`)
+                .then((res)=>{
+                    //state.movies=res.data.movieListResult.movieList
+                    commit('updateState', {
+                        movies: res.data.movieListResult.movieList
+                    })
+                    console.log(state.movies)
+                })
+         }
+         */
+         //검색한 영화 30개까지 보는 코드
         async searchMovies ({state, commit}) {
             const key = '1f23d9ce4e683611b73fb9600216d051'
             const res = await axios.get(`https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=${key}&movieNm=${state.title}&curPage=1`)
@@ -26,7 +40,7 @@ export default {
             commit('updateState', {
                 movies: res.data.movieListResult.movieList
             })
-
+            console.log(res.data.movieListResult.movieList)
             if (pageLength > 1) {
                 for(let i=2; i <= pageLength; i++) {
                     if(i > 4) break
@@ -35,5 +49,6 @@ export default {
                 }
             }
         }
+
     }
 }
