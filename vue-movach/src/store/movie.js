@@ -2,10 +2,10 @@ import axios from 'axios';
 
 export default {
     namespaced: true,
-    state: {
+    state: ()=>({
         title : '',
         movies: []
-    },
+    }), 
     getters: {},
     mutations: {
         updateState (state, payload) {

@@ -31,7 +31,7 @@ export default {
             axios.get(`https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=${key}&movieNm=${this.title}&curPage=1`)
                 .then((res)=>{
                     this.movies=res.data.movieListResult.movieList
-                    console.log(this.movies)
+                    console.log(res)
                 })
       }
     }

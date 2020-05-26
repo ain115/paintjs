@@ -10,6 +10,7 @@ require('dotenv').config();
 app.use(express.static('public'));
 app.use(history());
 app.use('/', express.static(path.join(__dirname, 'views')));
+app.use(require('connect-history-api-fallback')());
 
 app.get('/search/:movie', function(req, res) {
   let movie = encodeURIComponent(req.params.movie);
