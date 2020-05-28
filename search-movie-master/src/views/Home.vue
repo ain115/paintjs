@@ -64,7 +64,9 @@ export default {
       const {
         statusText,
         data: { items, display }
-      } = await axios.get(`/search/${this.movie}`);
+      } = await axios.get(`/search/${this.movie}`).then((res) => {
+        console.log(res);
+      });
 
       if (statusText === 'OK') {
         Object.assign(this.$data, {

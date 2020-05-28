@@ -34,5 +34,5 @@
     "sass-loader": "^8.0.0",
     "vue-template-compiler": "^2.6.10"
   },
-  "proxy": "https://openapi.naver.com"
+  "proxy": "http://localhost:3000/"
 }
