@@ -5,12 +5,14 @@ export default {
     state: ()=>({
         title : '',
         movies: [],
-        totalN: 0,
-        koTotal: 0,
-        otherTotal: 0,      
-        nationAlt: []
+        totalNum: 0,
+        koTotalNum: 0,
+        otherTotalNum: 0,
+        koList: [],
+        otherList: []
     }), 
     mutations: {
+        //어떤 state 속성값이 와도 저장하도록 해주는 메서드
         updateState (state, payload) {
             Object.keys(payload).forEach(key => {
                 state[key] = payload[key]
@@ -19,7 +21,10 @@ export default {
         pushIntoMovies (state, movies) {
             //아이템 단위로 저장시키지 위해서 전개연산자씀
             state.movies.push(...movies)
-        } 
+        },
+        pushList (state, koList) {
+            state.koList.push(...koList)
+        }
     },
     actions: {
         /* //검색한 영화 10개까지 보는 코드
@@ -42,26 +47,10 @@ export default {
             const result = res.data.movieListResult
             
             const pageLength = Math.ceil(result.totCnt /10)
-            
-            //국가 리스트
-           // commit('updateState', result.movieList.nationAlt)
-            result.movieList.filter(list => {
-               if(list.nationAlt === "한국"){
-                   commit('updateState', {
-                       koTotal: state.koTotal+1
-                   })
-               }else{
-                   commit('updateState', {
-                    otherTotal: state.otherTotal+1
-                   })
-               }
-
-            })
 
             //검색한 movie 데이터값, 전체갯수값 state에 저장
             commit('updateState', {
-                movies: result.movieList,
-                totalN: result.movieList.length
+                movies: result.movieList
             })
             console.log(result.movieList)
 
@@ -73,7 +62,44 @@ export default {
                     commit('pushIntoMovies', resMore.data.movieListResult.movieList)
                 }
             }
-        }
+            //검색 전체 갯수
+            commit('updateState', {
+                totalNum: result.movieList.length
+            })
 
+             //국가 리스트
+            result.movieList.map(list => {
+               if(list.nationAlt === "한국"){
+                   commit('updateState', {
+                       koTotalNum: state.koTotalNum+1,
+                   })
+               }else{
+                   commit('updateState', {
+                    otherTotalNum: state.otherTotalNum+1
+                   })
+               }
+
+            })
+
+            // const koList1 =  result.movieList.map(list => {
+            //     return list.nationAlt === "한국"         
+            // })
+            commit('updateState', {
+                koList: result.movieList.filter(list => {
+                    if(list.nationAlt === "한국"){
+                            return list
+                        }
+                    })
+             })
+
+             commit('updateState', {
+                otherList: result.movieList.filter(list => {
+                    if(list.nationAlt !== "한국"){
+                            return list
+                        }
+                    })
+             })
+
+        }
     }
 }

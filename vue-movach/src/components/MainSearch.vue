@@ -2,8 +2,8 @@
     <header>
         <p class="title">MOVACH</p>
         <div class="gnp">
-            <button>로그인</button>
-            <button>회원가입</button>
+            <button class="gnp_btn">로그인</button>
+            <button class="gnp_btn">회원가입</button>
         </div>
         <input type="text" v-model="title" @keypress.enter="searchMovies" placeholder="검색어를 입력해주세요">
     </header>
@@ -35,8 +35,8 @@ export default {
 <style>
     header {position:relative; width: 100%; height: 500px; background:url("../assets/img/home_img.jpg");}
     .title {margin: 0; text-align: center; line-height: 500px; font-size:150px; color:#fff;}
-    .gnp {position: absolute; top: 50px; right: 60px;}
-    .gnp button {width: 150px; height: 50px; border: none; border-radius: 10px; background:#ff2f6e; font-size:25px; color:#fff; cursor: pointer;}
-    .gnp button:first-child {margin-right: 20px; background:none;}
+    .gnp {position: absolute; top: 50px; right: 60px; width: 320px; height: 50px; }
+    .gnp .gnp_btn {width: 150px; height: 50px; border: none; border-radius: 10px; background:#ff2f6e; font-size:25px; color:#fff; cursor: pointer;}
+    .gnp .gnp_btn:first-child {margin-right: 20px; background:none;}
     input {position: absolute; left: 50%; bottom: 0; transform: translate(-50%, 50%); width: 70vw; height: 80px; border-radius: 10px; padding: 0 20px; font-size: 20px;}
 </style>
