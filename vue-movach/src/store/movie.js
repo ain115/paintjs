@@ -8,22 +8,20 @@ export default {
         totalNum: 0,
         koTotalNum: 0,
         otherTotalNum: 0,
+        totalMovies: [],
         koList: [],
         otherList: []
     }), 
     mutations: {
-        //어떤 state 속성값이 와도 저장하도록 해주는 메서드
+        //어떤 state값이 와도 저장하도록 해주는 메서드
         updateState (state, payload) {
             Object.keys(payload).forEach(key => {
                 state[key] = payload[key]
             })
         },
-        pushIntoMovies (state, movies) {
+        pushIntoMovies (state, totalMovies) {
             //아이템 단위로 저장시키지 위해서 전개연산자씀
-            state.movies.push(...movies)
-        },
-        pushList (state, koList) {
-            state.koList.push(...koList)
+            state.totalMovies.push(...totalMovies)
         }
     },
     actions: {
@@ -48,9 +46,9 @@ export default {
             
             const pageLength = Math.ceil(result.totCnt /10)
 
-            //검색한 movie 데이터값, 전체갯수값 state에 저장
+            //검색한 movie 데이터값
             commit('updateState', {
-                movies: result.movieList
+                totalMovies: result.movieList
             })
             console.log(result.movieList)
 
@@ -64,14 +62,15 @@ export default {
             }
             //검색 전체 갯수
             commit('updateState', {
-                totalNum: result.movieList.length
+                totalNum: result.movieList.length,
+                movies: state.totalMovies
             })
 
              //국가 리스트
             result.movieList.map(list => {
                if(list.nationAlt === "한국"){
                    commit('updateState', {
-                       koTotalNum: state.koTotalNum+1,
+                       koTotalNum: state.koTotalNum+1
                    })
                }else{
                    commit('updateState', {
@@ -100,6 +99,21 @@ export default {
                     })
              })
 
-        }
+        },
+        movieListShow ({state, commit}) {
+            commit('updateState', {
+                movies: state.totalMovies
+            })
+        },
+        movieKoShow ({state, commit}) {
+            commit('updateState', {
+                movies: state.koList
+            })
+        },
+        movieOtherShow ({state, commit}) {
+            commit('updateState', {
+                movies: state.otherList
+            })
+        },
     }
 }

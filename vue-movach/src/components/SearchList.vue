@@ -18,42 +18,33 @@
     </div>
 </template>
 <script>
-import { mapState } from 'vuex'
+import { mapState,mapActions } from 'vuex'
 
 export default {
-  // data() {
-  //   return {
-  //     movies: []
-  //   } 
-  // },
   computed: {
     ...mapState('movie', [
             'totalNum',
             'koTotalNum',
-            'otherTotalNum'
-    ]),
-    movies: {
-      get () {
-        return this.$store.state.movie.movies
-      },
-      set(movies) {
-         this.$store.commit('movie/updateState', {
-            movies
-          })
-      }
-    }
+            'otherTotalNum',
+            'movies'
+    ])
     
   },
   methods: {
-        movieListShow() {
-          return this.movies = this.$store.state.movie.movies
-        },
-        movieKoShow() {
-          return this.movies = this.$store.state.movie.koList
-        },
-        movieOtherShow() {
-          return this.movies = this.$store.state.movie.otherList
-        }
+    ...mapActions('movie',[
+            'movieListShow',
+            'movieKoShow',
+            'movieOtherShow'
+    ])
+        // movieListShow() {
+        //   return this.movies = this.$store.state.movie.movies
+        // },
+        // movieKoShow() {
+        //   return this.movies = this.$store.state.movie.koList
+        // },
+        // movieOtherShow() {
+        //   return this.movies = this.$store.state.movie.otherList
+        // }
     }
 }
 </script>
