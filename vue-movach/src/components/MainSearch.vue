@@ -2,10 +2,10 @@
     <header>
         <p class="title">MOVACH</p>
         <div class="gnp">
-            <button class="gnp_btn">로그인</button>
-            <button class="gnp_btn">회원가입</button>
+            <button class="gnp_btn" @click="loginpage">로그인</button>
+            <button class="gnp_btn" @click="signUppage">회원가입</button>
         </div>
-        <input type="text" v-model="title" @keypress.enter="searchMovies" placeholder="검색어를 입력해주세요">
+        <input type="text" class="search_input" v-model="title" @keypress.enter="searchMovies" placeholder="검색어를 입력해주세요">
     </header>
 </template>
 <script>
@@ -28,7 +28,17 @@ export default {
     methods: {
       ...mapActions('movie',[
             'searchMovies'
-        ])
+        ]),
+        loginpage() {
+          this.$router.push({
+                name: 'Login'
+            })
+        },
+        signUppage() {
+          this.$router.push({
+                name: 'SignUp'
+            })
+        }
     }  
 }
 </script>
@@ -38,5 +48,5 @@ export default {
     .gnp {position: absolute; top: 50px; right: 60px; width: 320px; height: 50px; }
     .gnp .gnp_btn {width: 150px; height: 50px; border: none; border-radius: 10px; background:#ff2f6e; font-size:25px; color:#fff; cursor: pointer;}
     .gnp .gnp_btn:first-child {margin-right: 20px; background:none;}
-    input {position: absolute; left: 50%; bottom: 0; transform: translate(-50%, 50%); width: 70vw; height: 80px; border-radius: 10px; padding: 0 20px; font-size: 20px;}
+    .search_input {position: absolute; left: 50%; bottom: 0; transform: translate(-50%, 50%); width: 70vw; height: 80px; border-radius: 10px; padding: 0 20px; font-size: 20px;}
 </style>
