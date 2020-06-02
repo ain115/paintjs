@@ -51,7 +51,7 @@ export default {
                 totalMovies: result.movieList
             })
             console.log(result.movieList)
-
+            
             //첫 렌더링 갯수
             if (pageLength > 1) {
                 for(let i=2; i <= pageLength; i++) {

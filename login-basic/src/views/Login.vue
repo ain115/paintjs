@@ -33,8 +33,6 @@
                         large
                     >로그인</v-btn>
                 </div>
-                <!-- <v-btn @click="test">테스트</v-btn>
-                <v-btn @click="posttest">포스트테스트</v-btn> -->
             </v-card>
             </v-fex>
         </v-layout>
@@ -73,24 +71,6 @@ export default {
     // 그 유저의 비밀번호와 입력된 비밀번호를 비교한다.
     // console.log(this.email, this.password)
     // }
-    // test () {
-    //   // function(){}익명함수를 쓰게되면 함수 안에 this가 임명함수가 받은 인가값을 가르키기때문에
-    //   // 외부data값을 this로 가져올려면 arrow함수를 써야함
-
-    //   axios.get('https://reqres.in/api')
-    //     .then(res => {
-    //       // handle success
-    //       console.log(res)
-    //     })
-    //     .catch(err => {
-    //       // handle error
-    //       console.log(err)
-    //     })
-    //     .then(() => {
-    //       console.log('test')
-    //     })
-    // },
-
   }
 }
 </script>
