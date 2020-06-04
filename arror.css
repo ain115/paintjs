@@ -1,0 +1,19 @@
+@font-face {
+    font-family: S-CoreDream-3;
+    src: url("../font/SCDream3.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
+  }
+ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20vh;
+    font-family: S-CoreDream-3;
+    font-size: 15px;}
+button {
+    width: 150px;
+    height: 40px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;}

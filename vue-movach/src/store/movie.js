@@ -36,9 +36,9 @@ export default {
                     })
                     console.log(state.movies)
                 })
-         }
-         */
-         //검색한 영화 30개까지 보는 코드
+            }
+            */
+            //검색한 영화 30개까지 보는 코드
         async searchMovies ({state, commit}) {
             const key = '1f23d9ce4e683611b73fb9600216d051'
             const res = await axios.get(`https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=${key}&movieNm=${state.title}&curPage=1`)
@@ -66,17 +66,17 @@ export default {
                 movies: state.totalMovies
             })
 
-             //국가 리스트
+            //국가 리스트
             result.movieList.map(list => {
-               if(list.nationAlt === "한국"){
-                   commit('updateState', {
-                       koTotalNum: state.koTotalNum+1
-                   })
-               }else{
-                   commit('updateState', {
+                if(list.nationAlt === "한국"){
+                    commit('updateState', {
+                        koTotalNum: state.koTotalNum+1
+                    })
+                }else{
+                    commit('updateState', {
                     otherTotalNum: state.otherTotalNum+1
-                   })
-               }
+                    })
+                }
 
             })
 
@@ -89,16 +89,17 @@ export default {
                             return list
                         }
                     })
-             })
+                })
 
-             commit('updateState', {
+            commit('updateState', {
                 otherList: result.movieList.filter(list => {
                     if(list.nationAlt !== "한국"){
-                            return list
-                        }
-                    })
-             })
+                        return list
+                    }
 
+                })
+            })
+        
         },
         movieListShow ({state, commit}) {
             commit('updateState', {
@@ -114,6 +115,6 @@ export default {
             commit('updateState', {
                 movies: state.otherList
             })
-        },
+        }
     }
 }

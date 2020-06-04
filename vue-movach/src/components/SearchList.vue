@@ -50,13 +50,14 @@ export default {
 </script>
 <style>
   .search_title_list {display:flex; justify-content: center; width: 100%; height: 100px; margin-top: 150px;}
-  .search_title_list .title_list_btn {width: 27vw; background: none; font-size: 25px; color: #002447; cursor:pointer;}
-  .search_title_list .title_list_btn>span {padding-left:10px; text-decoration: underline; font-size: 20px; color: #e27079;}
+  .search_title_list .title_list_btn {width: 27vw; border-top: none; border-right: none; border-left: none; border-bottom: 3px solid #02033b; border-radius: 10px 10px 0 0; background: #dfb7d3; font-size: 25px; color: #002447; cursor:pointer;}
+  .search_title_list .title_list_btn:focus {border: 3px solid #02033b; border-bottom: none; border-radius: 10px 10px 0 0; background: #ff2f6e; outline: none; color: #fff;}
+  .search_title_list .title_list_btn>span {display: inline-block; width: 34px; height: 28px; margin-left:10px; border-radius: 15px; padding-top: 4px; background: #1041817c; font-size: 20px; color: #fff;}
 
   ul {margin:0; padding:0;}
   ul,li,div {width: 100%; height: 100%; list-style: none; margin:0; padding:0;}
   /* .movie_list {display:flex; flex-direction: row; flex-wrap: wrap; justify-content: center; text-align: center;}
   .movie_list .list_box {width: 30vw; height: 30vh; margin: 10px; border:1px solid #444; border-radius:10px;} */
   .movie_list {width: 80vw; margin: 0 auto;}
-  .movie_list .list_box {border-bottom:1px solid #8f9cb1;}
+  .movie_list .list_box {padding:50px 20px; border-bottom:1px solid #02033b;}
 </style>
