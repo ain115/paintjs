@@ -38,7 +38,7 @@ export default {
                 })
             }
             */
-            //검색한 영화 30개까지 보는 코드
+        //검색한 영화 20개까지 보는 코드
         async searchMovies ({state, commit}) {
             const key = '1f23d9ce4e683611b73fb9600216d051'
             const res = await axios.get(`https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=${key}&movieNm=${state.title}&curPage=1`)

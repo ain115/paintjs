@@ -50,9 +50,10 @@ export default {
 </script>
 <style>
   .search_title_list {display:flex; justify-content: center; width: 100%; height: 100px; margin-top: 150px;}
-  .search_title_list .title_list_btn {width: 27vw; border-top: none; border-right: none; border-left: none; border-bottom: 3px solid #02033b; border-radius: 10px 10px 0 0; background: #dfb7d3; font-size: 25px; color: #002447; cursor:pointer;}
-  .search_title_list .title_list_btn:focus {border: 3px solid #02033b; border-bottom: none; border-radius: 10px 10px 0 0; background: #ff2f6e; outline: none; color: #fff;}
-  .search_title_list .title_list_btn>span {display: inline-block; width: 34px; height: 28px; margin-left:10px; border-radius: 15px; padding-top: 4px; background: #1041817c; font-size: 20px; color: #fff;}
+  .search_title_list .title_list_btn {width: 27vw; border-top: none; border-right: none; border-bottom: 3px solid #002f6c; border-left: none; background: #4f83cc; font-size: 25px; color: #333; cursor:pointer;}
+  .search_title_list .title_list_btn:focus {border-bottom: 3px solid #002f6c; background: #002f6c; outline: none; color: #fff;}
+    .search_title_list .title_list_btn:focus>span {background: #4f83cc; color: #333;}
+  .search_title_list .title_list_btn>span {display: inline-block; width: 34px; height: 28px; margin-left:10px; border-radius: 15px; padding-top: 4px; background: #002f6c; font-weight: bold; font-size: 20px; color: #fff;}
 
   ul {margin:0; padding:0;}
   ul,li,div {width: 100%; height: 100%; list-style: none; margin:0; padding:0;}

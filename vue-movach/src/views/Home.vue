@@ -1,5 +1,6 @@
 <template>
     <div>
+        <header-component />
         <main-search />
         <search-list v-if="show()" class="search_list" />
     </div>
@@ -8,6 +9,7 @@
 //import SearchTest from '@/components/SearchTest.vue'
 import MainSearch from '@/components/MainSearch.vue'
 import SearchList from '@/components/SearchList.vue'
+import HeaderComponent from '@/components/HeaderComponent.vue'
 
 export default {
   name: 'Home',
@@ -19,7 +21,8 @@ export default {
   components: {
     //SearchTest
     MainSearch,
-    SearchList
+    SearchList,
+    HeaderComponent
   },
   methods: {
     show() {
