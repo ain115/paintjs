@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="search_title_list">
-            <button class="title_list_btn" @click="movieListShow()">전체<span>{{totalNum}}</span></button>
+            <button class="title_list_btn" @click="movieListShow()" ref="totalBtn">전체<span>{{totalNum}}</span></button>
             <button class="title_list_btn" @click="movieKoShow()">한국영화<span>{{koTotalNum}}</span></button>
             <button class="title_list_btn" @click="movieOtherShow()">해외영화<span>{{otherTotalNum}}</span></button>
         </div>
@@ -27,8 +27,12 @@ export default {
             'koTotalNum',
             'otherTotalNum',
             'movies'
-    ])
-    
+    ])    
+  },
+  mounted () {
+    setTimeout(() => {
+       this.$refs.totalBtn.focus();
+    }, 2000)
   },
   methods: {
     ...mapActions('movie',[
@@ -36,23 +40,14 @@ export default {
             'movieKoShow',
             'movieOtherShow'
     ])
-        // movieListShow() {
-        //   return this.movies = this.$store.state.movie.movies
-        // },
-        // movieKoShow() {
-        //   return this.movies = this.$store.state.movie.koList
-        // },
-        // movieOtherShow() {
-        //   return this.movies = this.$store.state.movie.otherList
-        // }
     }
 }
 </script>
 <style>
-  .search_title_list {display:flex; justify-content: center; width: 100%; height: 100px; margin-top: 150px;}
+  .search_title_list {display:flex; justify-content: center; width: 100%; height: 100px;}
   .search_title_list .title_list_btn {width: 27vw; border-top: none; border-right: none; border-bottom: 3px solid #002f6c; border-left: none; background: #4f83cc; font-size: 25px; color: #333; cursor:pointer;}
   .search_title_list .title_list_btn:focus {border-bottom: 3px solid #002f6c; background: #002f6c; outline: none; color: #fff;}
-    .search_title_list .title_list_btn:focus>span {background: #4f83cc; color: #333;}
+  .search_title_list .title_list_btn:focus>span {background: #4f83cc; color: #333;}
   .search_title_list .title_list_btn>span {display: inline-block; width: 34px; height: 28px; margin-left:10px; border-radius: 15px; padding-top: 4px; background: #002f6c; font-weight: bold; font-size: 20px; color: #fff;}
 
   ul {margin:0; padding:0;}

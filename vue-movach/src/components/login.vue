@@ -19,6 +19,12 @@ import HeaderComponent from '@/components/HeaderComponent.vue'
 
 export default {
     name: 'Login',
+    data() {
+        return {
+            checkId : null,
+            checkPwd : null
+        }
+    },
     components: {
         HeaderComponent
     },
@@ -66,30 +72,36 @@ export default {
             }
 
             this.users = JSON.parse(localStorage.getItem('USERS'))
-
+            
             //로그인 id&password 체크 로직
-             for(let i = 0; i < this.users.length; i++){
-                    console.log(this.users[i].id)
-                    if(this.users[i].id !== id) {
-                        alert('id가 틀립니다. 다시 입력해주세요')
-                        this.id=''
-                        this.$refs.id.focus();
-                        return;
-                    }else if(this.users[i].password !== password){
-                        alert('password가 틀립니다. 다시 입력해주세요')
-                        this.password=''
-                        this.$refs.password.focus();
-                        return
-                    }else{
-                        alert(id+'님 로그인하셨습니다.')
-                        this.id=''
-                        this.password=''
-                        this.$router.push({
-                            name: 'Home'
-                        })
-                        break
+            for(let i = 0; i < this.users.length; i++){
+                if(this.users[i].id === id) {
+                    this.checkId = id
+                    if(this.users[i].password === password) {
+                        this.checkPwd = password
                     }
                 }
+            }
+            console.log(this.checkId, this.checkPwd)
+            if(this.checkId === null) {
+                alert('id가 틀립니다. 다시 입력해주세요')
+                this.id=''
+                this.$refs.id.focus();
+                return;
+            }else if(this.checkPwd === null) {
+                alert('password가 틀립니다. 다시 입력해주세요')
+                this.password=''
+                this.$refs.password.focus();
+                return
+            }else {
+                alert(id+'님 로그인하셨습니다.')
+                this.id=''
+                this.password=''
+                this.$router.push({
+                    name: 'Home'
+                })
+                
+            }
         }
     },
 }
