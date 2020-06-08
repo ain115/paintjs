@@ -24,7 +24,7 @@ app.get('/search/:movie', function(req, res) {
         }
       });
 
-      /*
+
       let resultJson = await result.json();
 
       if (resultJson && resultJson.items) {
@@ -34,7 +34,7 @@ app.get('/search/:movie', function(req, res) {
           errorMessage: '알 수 없는 요류가 발생했습니다.'
         });
       }
-      */
+
     } catch (err) {
       res.status(500).json({
         errorMessage: '알 수 없는 요류가 발생했습니다.'

@@ -211,7 +211,7 @@ nav .hamburg:after {
   border-radius: 60px;
   padding: 20px 20px;
 }
-.about_main .about_center .about_content .member ul li>strong {
+.about_main .about_center .about_content .member ul li>p {
   display: block;
   padding-top: 30px; 
 }
