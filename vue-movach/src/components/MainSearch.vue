@@ -1,6 +1,6 @@
 <template>
     <div>
-        <input type="text" class="search_input" v-model="title" @keypress.enter="searchMovies" placeholder="검색어를 입력해주세요">
+        <input type="text" class="search_input" v-model="title" @keypress.enter="searchMovies" placeholder="영화제목을 입력해주세요">
     </div>
 </template>
 <script>
