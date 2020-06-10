@@ -42,6 +42,8 @@ header .menu.active {display:block;}
 .about_section .about_bundle .skill_list li .circle .slice .fill {display:none; position:absolute; border:10px solid #28023E; width:95px; height:95px; clip:rect(0, 57.5px, 115px, 0); border-radius:50%; transform:rotate(180deg);}
 .about_section .about_bundle .skill_list li .circle .percent {position:relative; z-index:1; padding-top:40px; font-size:24px; font-weight:bold; color:#333;}
 .about_section .about_bundle .skill_list li .circle .percent span {font-size:24px; font-weight:bold;}
+.about_section .about_bundle .skill_list li .circle .click_percent {position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size:24px; font-weight:bold; color:#333; cursor: pointer;}
+.about_section .about_bundle .skill_list li .circle .click_percent:hover {font-size: 30px;}
 
 .portfolio_section {width:100%; height:1200px; margin:0 auto;}
 .portfolio_section .h4_background {position:relative; height:15vh; background:linear-gradient(#01172e 50%, transparent 50%);}

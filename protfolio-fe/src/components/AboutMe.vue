@@ -1,5 +1,6 @@
 <template>
     <div>
+        header.main_home(ref="mainHome")
         <div class="about_section">
             <div class="h2_background">
                 <h2 data-split="ABOUT ME">ABOUT ME</h2>
@@ -23,32 +24,35 @@
                     <ul class="skill_list">
                         <li>
                             <p>HTML</p>
-                            <div class="circle html">
+                            <div class="circle html" @click="circle('html')">
                                 <div class="slice">
                                 <div class="bar"></div>
                                 <div class="fill"></div>
                             </div>
-                                <p class="percent"><span>85</span>%</p>
+                                <p class="click_percent" v-show="show">click!</p>
+                                <p class="percent" v-show="show2"><span>85</span>%</p>
                             </div>
                         </li>
                         <li>
                             <p>CSS</p>
-                            <div class="circle css">
+                            <div class="circle css" @click="circle('css')">
                                 <div class="slice">
                                 <div class="bar"></div>
                                 <div class="fill"></div>
                             </div>
-                                <p class="percent"><span>70</span>%</p>
+                                <p class="click_percent" v-show="show3">click!</p>
+                                <p class="percent" v-show="show4"><span>70</span>%</p>
                             </div>
                         </li>
                         <li>
                             <p>JAVASCRIPT</p>
-                            <div class="circle javascript">
+                            <div class="circle javascript" @click="circle('javascript')">
                                 <div class="slice">
                                 <div class="bar"></div>
                                 <div class="fill"></div>
                             </div>
-                                <p class="percent"><span>30</span>%</p>
+                                <p class="click_percent" v-show="show5">click!</p>
+                                <p class="percent" v-show="show6"><span>30</span>%</p>
                             </div>
                         </li>
                     </ul>
@@ -57,5 +61,41 @@
         </div>
     </div>
 </template>
+<script>
+export default {
+  data () {
+    return {
+      show: true,
+      show2: false,
+      show3: true,
+      show4: false,
+      show5: true,
+      show6: false
+    }
+  },
+  methods: {
+    circle (element) {
+      const percent = document.querySelector('.circle.' + element + ' .percent span').innerText
+      let degrees = percent / 100 * 360
+      if (degrees > 360) degrees = 360
+      if (degrees > 180) {
+        document.querySelector('.' + element + ' .slice').style.clip = 'rect(auto, auto, auto, auto)'
+        document.querySelector('.' + element + ' .fill').style.display = 'block'
+      }
+      document.querySelector('.' + element + ' .bar').style.transform = 'rotate(' + degrees + 'deg)'
+      if (element === 'html') {
+        this.show = false
+        this.show2 = true
+      } else if (element === 'css') {
+        this.show3 = false
+        this.show4 = true
+      } else {
+        this.show5 = false
+        this.show6 = true
+      }
+    }
+  }
+}
+</script>
 <style src="@/assets/style.css" scope>
 </style>
